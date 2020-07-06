@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	programe02()
+	programe03()
 }
 
 // a new underlying array is allocated
@@ -28,4 +28,14 @@ func programe02() {
 
 	fmt.Println(x)
 	fmt.Println(y)
+}
+
+// “throw away” the variable and the same thing happens
+func programe03() {
+	x := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
+	fmt.Println(x)
+
+	_ = append(x[:2], x[5:]...) // the same underlying array stores the value of the new slice
+
+	fmt.Println(x)
 }
